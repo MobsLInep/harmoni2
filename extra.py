@@ -1,7 +1,7 @@
 import discord, random, asyncio
 from discord.ext import commands
 
-class Extra():
+class Extra(commands.Cog):
     def __init__(self, bot):
         self.bot=bot
 
@@ -26,7 +26,7 @@ class Extra():
     @commands.command()
     async def ping(self, ctx):
         embed = discord.Embed(
-                    description=f'Ping of Bot is:{round(client.latency * 1000)}ms',
+                    description=f'Ping of Bot is:{round(bot.latency * 1000)}ms',
                     color=0x42F56C)
         await ctx.send(embed=embed)
 
