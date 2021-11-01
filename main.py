@@ -13,7 +13,7 @@ intents= discord.Intents.default()
 intents.members = True
 bot=commands.Bot(command_prefix = get_prefix, help_command = None, intents=intents)
 #json.prefixes
-@client.event
+@bot.event
 async def on_guild_join(guild):
     with open('prefixes.json', 'r') as f:
         prefixes = json.load(f)
@@ -23,7 +23,7 @@ async def on_guild_join(guild):
     with open('prefixes.json', 'w') as f:
         json.dump(prefixes, f, indent=4)
 
-@client.event
+@bot.event
 async def on_guild_remove(guild):
     with open('prefixes.json', 'r') as f:
         prefixes = json.load(f)
@@ -33,7 +33,7 @@ async def on_guild_remove(guild):
     with open('prefixes.json', 'w') as f:
         json.dump(prefixes, f, indent=4)
 
-@client.command()
+@bot.command()
 @commands.has_permissions(manage_guild=True)
 async def changeprefix(ctx, prefix=''):
     try:
@@ -78,8 +78,8 @@ exts=['help','music','info','moderation','extra'] #Add your Cog extensions here
 
 @bot.event
 async def on_ready():
-    activity = discord.Game(name=f'-help in {len(client.guilds)} servers.', type=3)
-    await client.change_presence(status=discord.Status.online, activity=activity)
+    activity = discord.Game(name=f'-help in {len(bot.guilds)} servers.', type=3)
+    await bot.change_presence(status=discord.Status.online, activity=activity)
     print(bot.user.name)
 
 
