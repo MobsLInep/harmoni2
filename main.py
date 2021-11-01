@@ -1,8 +1,7 @@
 import discord,asyncio,youtube_dl,json
 from discord.ext import commands
 import os
-from dotenv import load_dotenv
-load_dotenv()
+
 
 def get_prefix(bot, message):
     with open('prefixes.json', 'r') as f:
@@ -88,4 +87,4 @@ for i in exts:
     bot.load_extension(i)
 
 
-bot.run(os.environ['TOKEN'])
+bot.run("ODY1ODc2MjYwNzQ4MTMyMzUz.YPKYGw.g8tU49N1Xku3HihLF6ze-FPNydo")
