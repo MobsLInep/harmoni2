@@ -6,7 +6,6 @@ class Moderation(commands.Cog):
         self.bot=bot
 
     @commands.Cog.listener()
-    @client.event
     async def on_command_error(self, ctx, error):
         embed=discord.Embed(title="**Wrong Command Triggered**", description='''Type .help to get more info about Harmoni Bot''', colour=0xe74c3c)
         mymessage = await ctx.send(embed=embed)
