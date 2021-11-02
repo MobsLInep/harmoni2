@@ -3,17 +3,17 @@ from discord.ext import commands
 import os
 
 
-def get_prefix(bot, message):
-    with open('prefixes.json', 'r') as f:
-        prefixes = json.load(f)
-    return prefixes[str(message.guild.id)]
-
+#def get_prefix(bot, message):
+#    with open('prefixes.json', 'r') as f:
+#        prefixes = json.load(f)
+#    return prefixes[str(message.guild.id)]
+#get_prefix
 
 intents= discord.Intents.default()
 intents.members = True
-bot=commands.Bot(command_prefix = get_prefix, help_command = None, intents=intents)
+bot=commands.Bot(command_prefix = "-", help_command = None, intents=intents)
 #json.prefixes
-@bot.event
+"""@bot.event
 async def on_guild_join(guild):
     with open('prefixes.json', 'r') as f:
         prefixes = json.load(f)
@@ -31,12 +31,13 @@ async def on_guild_remove(guild):
     prefixes.pop(str(guild.id))
 
     with open('prefixes.json', 'w') as f:
-        json.dump(prefixes, f, indent=4)
+        json.dump(prefixes, f, indent=4)"""
 
 @bot.command()
 @commands.has_permissions(manage_guild=True)
 async def changeprefix(ctx, prefix=''):
-    try:
+    await ctx.send("Removed feature until further notice... Sorry!")
+"""    try:
         if len(prefix)==0 or prefix==" " or len(prefix)>1:
             embed=discord.Embed(title="**Command triggered Insufficient/Wrong Data**", description='''Please give a appropriate single charcter
 **Example**: <prefix>changeprefix *''', colour=0x3498db)
@@ -69,7 +70,7 @@ async def changeprefix(ctx, prefix=''):
 **Example**: <prefix>changeprefix *''', colour=0x3498db)
         mymessage = await ctx.send(embed=embed)
         await asyncio.sleep(4)
-        await mymessage.delete()
+        await mymessage.delete()"""
 
 
 
