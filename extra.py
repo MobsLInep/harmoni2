@@ -23,12 +23,5 @@ class Extra(commands.Cog):
         await asyncio.sleep(100)
         await mym.delete()
 
-    @commands.command()
-    async def ping(self, ctx):
-        embed = discord.Embed(
-                    description=f'Ping of Bot is:{round(bot.latency * 1000)}ms',
-                    color=0x42F56C)
-        await ctx.send(embed=embed)
-
 def setup(bot):
   bot.add_cog(Extra(bot))
