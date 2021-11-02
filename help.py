@@ -42,10 +42,12 @@ Temporarily mutes a member in the server
 ''', color=0x109319)
           await ctx.send(embed=embed)
       elif argument.lower()=='music':
-          embed=discord.Embed(title="Music Commands", description='''`-join`
-Joins the voice channel.(Required before -play)
+#`join`, `play`, `pause`, `resume`, `repeat`, `download`, `queue`, `reset`,
+# `skip`, `song-info`, `volume`, `stop`, `leave`
+          embed=discord.Embed(title="Music Commands(Delayed Music)", description='''`-join`
+Joins the voice channel.
 
-`-play [youtube url]`
+`-play [title/youtube url or playlist]`
 Plays the song.
 
 `-pause`
@@ -54,11 +56,32 @@ Pause the current song
 `-resume`
 Resumes the current song.
 
+`-repeat`
+Loops the current song.
+
+`-download [title/youtube url or playlist]`
+Downloads the song in mp3 format and sends in it discord.
+
+`-queue`
+Shows up the current queue.
+
+`-reset`
+Starts the song from beginning.
+
+`-skip`
+Skips the current song playing and plays the next soong in the queue if any.
+
+`-song-info`
+Gives info of the current song playing.
+
+`-volume [integer]`
+Adjust volume of Harmoni. [Default=50]
+
 `-stop`
 Stops the current song playing.
 
 `-leave`
-Leaves the voice channel.(Required)''', color=0x109319)
+Leaves the voice channel.''', color=0x109319)
           await ctx.send(embed=embed)
       elif argument.lower()=='aboutdev':
           embed=discord.Embed(title="About Commands", description='''`-aboutdev`
@@ -75,13 +98,13 @@ Gives a invite link for Harmoni Bot.
           embed=discord.Embed(title="Harmoni Bot", description='''**All Harmoni Commands Categories:**
 You could type .help <command_category> for more info.''', color=0x109319)
           embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/865876260748132353/17cc0e8ff24cbcdf4c2ea1a0f8456206.png?size=128")
-          embed.add_field(name="1. :gear:Utility:", value='''`changeprefix`, `whois`, `avatar`, `serverinfo`
+          embed.add_field(name="1. :gear:Utility:", value='''`whois`, `avatar`, `serverinfo`
 
 Type "-help utility" will give more info about all the bot commands.''', inline=False)
-          embed.add_field(name="2. :hammer:Moderator:", value='''`ban`, `tempban` , `kick`, `mute`, `purge`
+          embed.add_field(name="2. :hammer:Moderator:", value='''`ban`, `kick`, `mute`, `purge`
 
 Type "-help moderator" to get more info about all the moderator commands.''', inline=False)
-          embed.add_field(name="3. :musical_note:Music(Very unstable):", value='''`join`, `play`, `pause`, `resume`, `stop`, `leave`
+          embed.add_field(name="3. :musical_note:Music(Delayed):", value='''`join`, `play`, `pause`, `resume`, `repeat`, `download`, `queue`, `reset`, `skip`, `song-info`, `volume`, `stop`, `leave`
 
 Type "-help music" to get more info about all the music commands.''', inline=False)
 
@@ -89,7 +112,7 @@ Type "-help music" to get more info about all the music commands.''', inline=Fal
 
 Type "-help aboutdev" to get more info about all the About commands.
 [**Invite Link**](https://discord.com/api/oauth2/authorize?client_id=865876260748132353&permissions=8&scope=bot)  ||   [**Support Server**](https://discord.gg/ReTdc9dFuP)''', inline=False)
-          embed.set_footer(text=f'''Harmoni Bot version-Beta 1.0. More features will be added in the upcoming version.
+          embed.set_footer(text=f'''Harmoni Bot version-Beta 1.3. More features will be added in the upcoming version.
 Requested by:{member}''', icon_url=member.avatar_url)
           await ctx.send(embed=embed)
 
