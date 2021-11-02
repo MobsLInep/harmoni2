@@ -77,7 +77,7 @@ async def changeprefix(ctx, prefix=''):
 exts=['help','music','info','moderation','extra'] #Add your Cog extensions here
 
 @bot.command()
-async def ping(self, ctx):
+async def ping(ctx):
     embed = discord.Embed(
                 description=f'Ping of Bot is:{round(bot.latency * 1000)}ms',color=0x42F56C)
     await ctx.send(embed=embed)
