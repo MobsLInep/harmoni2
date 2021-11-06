@@ -74,7 +74,7 @@ async def changeprefix(ctx, prefix=''):
 
 
 
-exts=['help','music','info','moderation','extra'] #Add your Cog extensions here
+exts=['help','music','info','moderation','extra','waifu'] #Add your Cog extensions here
 
 @bot.command()
 async def ping(ctx):
