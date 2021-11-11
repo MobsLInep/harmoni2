@@ -39,6 +39,9 @@ Kicks a member from the server.
 
 `-mute [member] (optional:reason)`
 Temporarily mutes a member in the server.
+
+`-purge [amount]`
+Deletes the amount of messages in the channel.
 ''', color=0x109319)
           await ctx.send(embed=embed)
       elif argument.lower()=='waifu' or argument.lower()=='anime':
@@ -50,6 +53,9 @@ Display an image with the "maid" tag.
 
 `-random`
 Display an image with the "all" tag.
+
+`-neko`
+Display an image with the "neko" tag.
 ''', color=0x109319)
           await ctx.send(embed=embed)
       elif argument.lower()=='music':
@@ -107,25 +113,21 @@ Gives a invite link for Harmoni Bot.
           await ctx.send(embed=embed)
       else:
           embed=discord.Embed(title="Harmoni Bot", description='''**All Harmoni Commands Categories:**
-You could type .help <command_category> for more info.''', color=0x109319)
+You could type `-help <category>` for more info.''', color=0x109319)
           embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/865876260748132353/17cc0e8ff24cbcdf4c2ea1a0f8456206.png?size=128")
-          embed.add_field(name="1. :gear:Utility:", value='''`whois`, `avatar`, `serverinfo`
+          embed.add_field(name="1. :gear:Utility:", value='''`whois`, `avatar`, `serverinfo`,`changeprefix`''', inline=True)
 
-Type "-help utility" will give more info about all the bot commands.''', inline=False)
-          embed.add_field(name="2. :hammer:Moderator:", value='''`ban`, `kick`, `mute`, `purge`
+          embed.add_field(name="2. :tools:Moderator:", value='''`ban`, `kick`, `mute`, `unban`, `purge`''', inline=True)
 
-Type "-help moderator" to get more info about all the moderator commands.''', inline=False)
-          embed.add_field(name="3. :musical_note:Music(Delayed):", value='''`join`, `play`, `pause`, `resume`, `repeat`, `download`, `queue`, `reset`, `skip`, `song-info`, `volume`, `stop`, `leave`
+          embed.add_field(name="3. :musical_note:Music(Delayed):", value='''`join`, `play`, `pause`, `resume`, `repeat`, `download`, `queue`, `reset`, `skip`, `song-info`, `volume`, `stop`, `leave`''', inline=False)
 
-Type "-help waifu" to get more info about all the music commands.''', inline=False)
-          embed.add_field(name="4. Anime/Waifu:", value='''`waifu`, `maid`, `random`
+          embed.add_field(name="4. Anime/Waifu:", value='''`waifu`, `maid`, `random`, `neko`''', inline=True)
 
-Type "-help music" to get more info about all the music commands.''', inline=False)
-          embed.add_field(name="5. :robot:About Bot and Dev(Just for fun)", value='''`aboutdev`, `ping`, `invite`
+          embed.add_field(name="5. :robot:About Bot and Dev(Just for fun)", value='''`aboutdev`, `ping`, `invite`''', inline=True)
 
-Type "-help aboutdev" to get more info about all the About commands.
-[**Invite Link**](https://discord.com/api/oauth2/authorize?client_id=865876260748132353&permissions=8&scope=bot)  ||   [**Support Server**](https://discord.gg/ReTdc9dFuP)''', inline=False)
-          embed.set_footer(text=f'''Harmoni Bot version-Beta 1.4. More features will be added in the upcoming version.
+          embed.add_field(name='**Extra Links**',value='[**Invite Link**](https://discord.com/api/oauth2/authorize?client_id=865876260748132353&permissions=8&scope=bot)  •   [**Support Server**](https://discord.gg/ReTdc9dFuP)  • [**Upvote**](https://top.gg/bot/865876260748132353/vote)',inline=False)
+
+          embed.set_footer(text=f'''Harmoni Bot version-Beta 1.5. More features will be added in the upcoming version.
 Requested by:{member}''', icon_url=member.avatar_url)
           await ctx.send(embed=embed)
 
