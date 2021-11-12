@@ -5,6 +5,7 @@ from discord_components import DiscordComponents, Button, ButtonStyle, Select, S
 class Helping(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        DiscordComponents(bot)
 #Events
 #  @commands.Cog.listener()
 
@@ -35,7 +36,7 @@ class Helping(commands.Cog):
                                 await msg.delete()
                                 break
                         except asyncio.TimeoutError:
-                            await msg.edit('Timed out!', components=[])
+                            await msg.edit(components=[])
 
     @commands.command()
     async def maid(self,ctx):
@@ -62,7 +63,7 @@ class Helping(commands.Cog):
                                 await msg.delete()
                                 break
                         except asyncio.TimeoutError:
-                            await msg.edit('Timed out!', components=[])
+                            await msg.edit(components=[])
 
     @commands.command()
     async def random(self,ctx):
@@ -89,7 +90,7 @@ class Helping(commands.Cog):
                                 await msg.delete()
                                 break
                         except asyncio.TimeoutError:
-                            await msg.edit('Timed out!', components=[])
+                            await msg.edit(components=[])
 
 def setup(bot):
     bot.add_cog(Helping(bot))
