@@ -97,7 +97,7 @@ class Helping(commands.Cog):
             member=ctx.author
             r = requests.get("https://neko-love.xyz/api/v1/neko")
             if r.status_code != 200:
-            msg1 = "An error has occurred"
+                msg1 = "An error has occurred"
             else:
                 msg1=r.json()["url"]
             embed=discord.Embed(title='Waifu',colour=0xe91e63)
