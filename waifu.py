@@ -91,6 +91,30 @@ class Helping(commands.Cog):
                                 break
                         except asyncio.TimeoutError:
                             await msg.edit(components=[])
+                            
+        @commands.command()
+        async def neko(self, ctx):
+            member=ctx.author
+            r = requests.get("https://neko-love.xyz/api/v1/neko")
+            if r.status_code != 200:
+            msg1 = "An error has occurred"
+            else:
+                msg1=r.json()["url"]
+            embed=discord.Embed(title='Waifu',colour=0xe91e63)
+            embed.set_image(url=msg1)
+            embed.set_footer(text=f'''Requested by:{member}''', icon_url=member.avatar_url)
+            msg=await ctx.send(embed=embed, components=[Button(label='',emoji=self.bot.get_emoji(888657398213017660), style=ButtonStyle.red)])
+            while True:
+                try:
+                    interaction = await self.bot.wait_for(
+                            'button_click',
+                            check=lambda inter: inter.message.id == msg.id and inter.author.id == ctx.author.id,
+                            timeout=120)
+                    if interaction.author.id == ctx.author.id:
+                        await msg.delete()
+                        break
+                except asyncio.TimeoutError:
+                    await msg.edit(components=[])
 
 def setup(bot):
     bot.add_cog(Helping(bot))
